@@ -6,6 +6,7 @@ module.exports = {
       colors: {
         "weather-primary": "#00668A",
         "weather-secondary": "#004E71",
+        transparent: 'transparent',
       },
     },
     fontFamily: {
@@ -20,5 +21,10 @@ module.exports = {
       md: "768px",
     },
   },
+  variants: {
+    extend: {
+      visibility: ["group-hover"],
+    },
+   },
   plugins: [require("@tailwindcss/forms")],
 };
