@@ -8,7 +8,7 @@
         <h1>What Todo?</h1>
       </div>
     </header>
-    <main class="min-h-screen bg-cover bg-weather-primary absolute w-full">
+    <main class="absolute min-h-screen w-full bg-cover bg-weather-primary">
       <div class="max-w-xl my-10 p-7 mx-auto rounded-xl bg-white">
         <TodoItem
           v-for="(todo, index) in todos"

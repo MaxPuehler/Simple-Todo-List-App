@@ -1,26 +1,26 @@
 <template>
   <teleport to="body">
-      <transition name="modal-outer">
-        <div
-          v-show="modalActive"
-          class="absolute w-full bg-black bg-opacity-20 h-screen top-0 left-0 flex justify-end px-8"
-        >
-          <transition name="modal-inner">
-            <div
-              v-if="modalActive"
-              class="p-4 bg-white self-start mt-[7.7rem] mr-36 max-w-screen-md border border-gray-400 rounded-md"
+    <transition name="modal-outer">
+      <div
+        v-show="modalActive"
+        class="absolute min-h-screen w-full bg-black bg-opacity-20 top-0 left-0 flex justify-end px-8"
+      >
+        <transition name="modal-inner">
+          <div
+            v-if="modalActive"
+            class="p-4 bg-white self-start mt-[7.7rem] mr-36 max-w-screen-md border border-gray-400 rounded-md"
+          >
+            <slot />
+            <button
+              @click="$emit('close-modal')"
+              class="text-white bg-weather-secondary hover:bg-weather-primary mt-8 py-2 px-6 rounded-md"
             >
-              <slot />
-              <button
-                @click="$emit('close-modal')"
-                class="text-white bg-weather-secondary hover:bg-weather-primary mt-8 py-2 px-6 rounded-md"
-              >
-                Close
-              </button>
-            </div>
-          </transition>
-        </div>
-      </transition>
+              Close
+            </button>
+          </div>
+        </transition>
+      </div>
+    </transition>
   </teleport>
 </template>
 

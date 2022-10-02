@@ -52,9 +52,9 @@
         >
           {{ todo.body }}
         </div>
-        <div class="text-xs text-gray-500">
+        <div v-if="todo.date !== ''" class="text-xs text-gray-500">
           <i class="fa-regular fa-calendar"></i>
-          {{ todo.date }} {{ todo.time }}
+          {{ todo.date }}
         </div>
       </div>
     </div>
@@ -108,9 +108,11 @@
       <li class="py-2">
         <p>Edit Date:</p>
         <Datepicker
-        v-model="todo.utcdate"
-        @input="(event) => (todo.utcdate = event.target.value)"
+          v-model="todo.date"
+          @input="(event) => (todo.date = event.target.value)"
           vertical
+          placeholder="Select Date"
+          model-type="EEEE, LLL dd HH:mm"
           ref="todoDateInput"
         ></Datepicker>
       </li>
@@ -139,7 +141,7 @@
               @click="todoPrio3(todo)"
               class="w-7 h-7 border border-gray-500 rounded-md hover:bg-indigo-100"
             >
-              <i class="fa-regular fa-flag text-blue-500 "></i>
+              <i class="fa-regular fa-flag text-blue-500"></i>
             </button>
           </li>
           <li>
@@ -174,15 +176,7 @@ defineProps({
       type: String,
       required: true,
     },
-    utc: {
-      type: String,
-      required: false,
-    },
     date: {
-      type: String,
-      required: false,
-    },
-    time: {
       type: String,
       required: false,
     },
